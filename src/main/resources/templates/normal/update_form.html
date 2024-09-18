@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en" xmlns="https://www.thymeleaf.org" th:replace="normal/base::layoute(~{::section})">
+<head>
+	<meta charset="UTF-8" />
+	    <title th:text="${title}">Base page hello</title>
+	
+</head>
+<body>
+
+
+<section>
+
+
+<div class="card mr-4 ml-4">
+
+
+			<div class="card-body">
+
+				<h1 class="text-center">Update Contact</h1>
+
+				<div class="container-fluid mt-1">
+
+
+					<div class="row">
+
+						<div class="col-md-8 offset-md-2">
+
+
+							<form action="" th:object="${contact}"
+								enctype="multipart/form-data"
+								 method="post"
+								th:action="@{/user/process_contact}"
+								 class="mt-2"
+								>
+								
+								
+								<!--  first name -->
+								
+								
+								<div class="input-group">
+								
+								
+								<div class="input-group-prepend">
+								
+								<div class="input-group-text">
+								
+								<i class="fa fa-plus"></i>
+								
+								</div>
+								
+								</div>
+								
+								
+								<input th:value="${contact.name}" required type="text" id="FirstName" name="name" placeholder="Entre Name Here" class="form-control" />
+								
+								
+								</div>
+								
+								
+								
+								
+								<!-- Second name -->
+								
+								
+								
+								
+								<div class="input-group mt-3">
+								
+								
+								<div class="input-group-prepend">
+								
+								<div class="input-group-text ">
+								
+								<i class="fa fa-user-alt"></i>
+								
+								</div>
+								
+								</div>
+								
+								
+								<input th:value="${contact.secondName}" required type="text" id="secondName" name="secondName" placeholder="Entre Last Name Here" class="form-control" />
+								
+								
+								</div>
+								
+								
+								<!-- phone number -->
+								
+								
+								
+								
+								<div class="input-group mt-3">
+								
+								
+								<div class="input-group-prepend">
+								
+								<div class="input-group-text ">
+								
+								<i class="fa fa-phone"></i>
+								
+								</div>
+								
+								</div>
+								
+								
+								<input th:value="${contact.phone}"  required type="number" id="phone" name="phone" placeholder="Entre Phone Number" class="form-control" />
+								
+								
+								</div>
+								
+								
+								
+								
+								<!-- Email -->
+								
+								
+								<div class="input-group mt-3">
+								
+								
+								<div class="input-group-prepend">
+								
+								<div class="input-group-text ">
+								
+								<i class="fa fa-envelope"></i>
+								
+								</div>
+								
+								</div>
+								
+								
+								<input th:value="${contact.email}" required type="email" id="email" name="email" placeholder="Entre Email Here" class="form-control" />
+								
+								
+								</div>
+								
+								
+								
+								<!-- Work Field -->
+								
+								
+								
+								<div class="input-group mt-3">
+								
+								
+								<div class="input-group-prepend">
+								
+								<div class="input-group-text ">
+								
+								<i class="fa fa-briefcase"></i>
+								
+								</div>
+								
+								</div>
+								
+								
+								<input th:value="${contact.work}" required type="text" id="work" name="work" placeholder="Entre Work Here" class="form-control" />
+								
+								
+								</div>
+								
+								
+								
+								
+								
+								<!-- Contact Description -->
+								
+					
+								
+								
+								
+								<div class="form-group mt-3">
+								
+								
+								
+								<textarea th:text="${contact.description}"  id ="mytextarea" name="description" placeholder="Enter contact description"  cols="63" rows="12"> </textarea>
+								
+								
+								
+								</div>
+								
+								
+								<!-- Contact image -->
+								
+								
+								<div class="container text-center">
+								
+								<img style="width:250px ; height:250px;" class="img-fluid my_profile_picture " th:src="@{'/image/' +${contact.image}}" alt="profile pic" />
+								
+								
+								</div>
+								
+								<p class="text-secondary">Choose new profile pic</p>
+								
+								
+								<!-- image -->
+								
+								<div class="custome-file">
+								
+								
+								<input type="file" name="imageprofile"  />
+								
+								
+								</div>
+								
+								
+								<!-- submit button -->
+								
+								
+								
+								<div class="container text-center">
+								
+								<button class="btn btn-outline-primary">update  Contact</button>
+								
+								</div>
+								
+								
+								
+								
+								</form>
+
+
+
+						</div>
+
+
+
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+		
+		
+		
+		
+		<!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/9q3ts8s6ztt7vate4wzsapjkouilrrqg2w890yjmfe5x0jlt/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<script>
+  tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+  });
+</script>
+		
+		
+		
+
+
+
+
+
+</section>
+
+
+	
+</body>
+</html>
